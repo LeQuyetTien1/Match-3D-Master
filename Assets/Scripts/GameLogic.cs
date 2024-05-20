@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class GameLogic : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class GameLogic : MonoBehaviour
     public Button remuseButton, pauseButton, freezeButton;
     public Stopwatch stopwatch;
     public GameObject blackPlane;
+    public UnityEvent increaseScore;
     public Item[] listItem;
     private Item replaceItem;
+    
     private void OnValidate()
     {
         AddItemID();
@@ -40,8 +43,9 @@ public class GameLogic : MonoBehaviour
             Destroy(replaceItem.gameObject,0.5f);
             DestroyObject(slot1);
             DestroyObject(slot2);
-            score++;
-            scoreText.text = score.ToString();
+            /*score++;
+            scoreText.text = score.ToString();*/
+            increaseScore.Invoke();
         }
         if (replaceItem == null) blackPlane.SetActive(false);
     }

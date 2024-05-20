@@ -48,8 +48,7 @@ public class DragDrop : MonoBehaviour
                 else
                 {
                     transform.DOLocalJump(new Vector3(Random.Range(-5, 5), 0.2f, Random.Range(0, 3)), 1f, 1, 1);
-                    /*transform.DOJump(new Vector3(Random.Range(-5, 5), 0.2f, Random.Range(0, 3)), 1f, 1, 1);*/
-                    /*transform.DOPunchScale(new Vector3(0, 5, 5), 1);*/
+                    transform.DOLocalRotate(new Vector3(90, 0, 0),1f);
                 }
             }
         }
