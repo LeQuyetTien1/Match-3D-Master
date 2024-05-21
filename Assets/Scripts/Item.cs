@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public int id;
+    public int number;
     private void OnValidate()
     {
         if (gameObject.GetComponent<DragDrop>() == null)

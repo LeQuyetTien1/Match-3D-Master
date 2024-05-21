@@ -5,13 +5,12 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class GameLogic : MonoBehaviour
 {
     public Slot slot1, slot2;
-    public GameObject gameOverPanel, gameWinPanel;   
-    public Text scoreText;
-    private int score = 0;
+    public GameObject gameOverPanel, gameWinPanel;
     public Button remuseButton, pauseButton, freezeButton;
     public Stopwatch stopwatch;
     public GameObject blackPlane;
@@ -25,8 +24,8 @@ public class GameLogic : MonoBehaviour
     }
     private void Start()
     {
-        SpawnItem();
-        SpawnItem();
+        SpawnItem(1);
+        SpawnItem(2);
     }
     private void Update()
     {
@@ -43,8 +42,6 @@ public class GameLogic : MonoBehaviour
             Destroy(replaceItem.gameObject,0.5f);
             DestroyObject(slot1);
             DestroyObject(slot2);
-            /*score++;
-            scoreText.text = score.ToString();*/
             increaseScore.Invoke();
         }
         if (replaceItem == null) blackPlane.SetActive(false);
@@ -60,7 +57,6 @@ public class GameLogic : MonoBehaviour
     {
         gameWinPanel.SetActive(true);
         Time.timeScale = 0;
-        DeactivateDragDrop();
         pauseButton.enabled = false;
         freezeButton.enabled = false;
     }
@@ -81,12 +77,12 @@ public class GameLogic : MonoBehaviour
             }           
         }
     }
-    [ContextMenu("Spawn Item")]
-    public void SpawnItem()
+    public void SpawnItem(int number)
     {
         for(int i=0; i < listItem.Length; i++)
         {
-            Instantiate(listItem[i], new Vector3(Random.Range(-6,6),Random.Range(0.5f,2.5f),Random.Range(-0.3f,3f)), Quaternion.Euler(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));
+            listItem[i].number = number;
+            Instantiate(listItem[i], new Vector3(Random.Range(-6,6),Random.Range(0.5f,2.5f),Random.Range(-0.3f,3f)), Quaternion.Euler(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));            
         }
     }
     public void Pause()
@@ -119,5 +115,29 @@ public class GameLogic : MonoBehaviour
             listObject[i].gameObject.layer = 6;
         }
     }
-    
+    [ContextMenu("Use Hint")]
+    public void UseHint()
+    {
+        GameObject[] listObject = GameObject.FindGameObjectsWithTag("Item");
+        var randomObject = listObject[Random.Range(0, listObject.Length - 1)];
+        /*int randomID = Random.Range(1, listItem.Length);*/
+        for (int i = 0; i < listObject.Length; i++)
+        {
+            if (listObject[i] != null && listObject[i].GetComponent<Item>().id == randomObject.GetComponent<Item>().id)
+            {
+                listObject[i].transform.eulerAngles = Vector3.zero;
+                if (listObject[i].GetComponent<Item>().number == 1)
+                {
+                    /*listObject[i].transform.DOMove(DragDrop.slot1Pos, 1);*/
+                    listObject[i].transform.DOLocalJump(DragDrop.slot1Pos, 1, 1, 1);
+                }
+                else if (listObject[i].GetComponent<Item>().number == 2)
+                {
+                    /*listObject[i].transform.DOMove(DragDrop.slot2Pos, 1);*/
+                    listObject[i].transform.DOLocalJump(DragDrop.slot2Pos, 1, 1, 1);
+                }
+                
+            }
+        }
+    }
 }

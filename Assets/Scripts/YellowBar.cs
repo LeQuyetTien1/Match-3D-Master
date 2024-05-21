@@ -42,7 +42,7 @@ public class YellowBar : MonoBehaviour
         {
             runTime *= 0.8f;
             remainTime = runTime;
-            yellowBar.fillAmount = 1;
+            /*yellowBar.fillAmount = 1;*/
         }
         else
         {
