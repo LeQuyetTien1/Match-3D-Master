@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 51
 --- !u!64 &-9079044368850226160
 MeshCollider:
   m_ObjectHideFlags: 0

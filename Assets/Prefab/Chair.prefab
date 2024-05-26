@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 13
+  number: 0
 --- !u!114 &690763347480498125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 51
 --- !u!64 &3978435256879677309
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ using System;
 public class Stopwatch : MonoBehaviour
 {
     public int limitTime;
-    private float gameTime;
+    public float gameTime;
     public Text timeText;
     public UnityEvent gameOver;
     public bool isStop = false;

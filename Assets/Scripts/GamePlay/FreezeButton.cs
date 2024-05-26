@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class TimeFreeze : MonoBehaviour
+public class FreezeButton : MonoBehaviour
 {
     public Text timeText, freezeCountText;
     public int limitTime;

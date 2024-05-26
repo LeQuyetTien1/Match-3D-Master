@@ -6,12 +6,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
     public Slot slot1, slot2;
     public GameObject gameOverPanel, gameWinPanel;
-    public Button remuseButton, pauseButton, freezeButton;
+    public Button remuseButton, pauseButton, freezeButton, hintButton;
     public Stopwatch stopwatch;
     public GameObject blackPlane;
     public UnityEvent increaseScore;
@@ -24,6 +25,7 @@ public class GameLogic : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = 1;
         SpawnItem(1);
         SpawnItem(2);
     }
@@ -39,19 +41,25 @@ public class GameLogic : MonoBehaviour
             replaceItem = Instantiate(slot1.item, new Vector3(-0.1f, 0.22f, -4.22f), slot1.item.transform.rotation);
             replaceItem.GetComponent<MeshCollider>().enabled = false;
             replaceItem.GetComponent<Rigidbody>().isKinematic = false;
-            Destroy(replaceItem.gameObject,0.5f);
+            Destroy(replaceItem.gameObject, 0.5f);
             DestroyObject(slot1);
             DestroyObject(slot2);
             increaseScore.Invoke();
+            hintButton.GetComponent<HintButton>().isEndJump = true;
         }
-        if (replaceItem == null) blackPlane.SetActive(false);
+        if (replaceItem == null)
+        {
+            blackPlane.SetActive(false);
+        }
     }
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
         DeactivateDragDrop();
+        Time.timeScale = 0;
         pauseButton.enabled = false;
         freezeButton.enabled = false;
+        hintButton.enabled = false;
     }
     public void GameWin()
     {
@@ -59,6 +67,7 @@ public class GameLogic : MonoBehaviour
         Time.timeScale = 0;
         pauseButton.enabled = false;
         freezeButton.enabled = false;
+        hintButton.enabled = false;
     }
     private void DestroyObject(Slot slot)
     {
@@ -91,6 +100,7 @@ public class GameLogic : MonoBehaviour
         DeactivateDragDrop();
         Time.timeScale = 0;
         freezeButton.enabled = false;
+        hintButton.enabled = false;
     }
     public void Remuse()
     {
@@ -98,6 +108,7 @@ public class GameLogic : MonoBehaviour
         ActivateDragDrop();
         Time.timeScale = 1;
         freezeButton.enabled = true;
+        hintButton.enabled = true;
     }
     public void DeactivateDragDrop()
     {
@@ -115,29 +126,24 @@ public class GameLogic : MonoBehaviour
             listObject[i].gameObject.layer = 6;
         }
     }
-    [ContextMenu("Use Hint")]
-    public void UseHint()
+    public void LoadHomeScene()
     {
-        GameObject[] listObject = GameObject.FindGameObjectsWithTag("Item");
-        var randomObject = listObject[Random.Range(0, listObject.Length - 1)];
-        /*int randomID = Random.Range(1, listItem.Length);*/
-        for (int i = 0; i < listObject.Length; i++)
+        SceneManager.LoadScene("Home");
+        EventSystem.heart--;
+    }
+    public void ContinuePlaying()
+    {
+        if (EventSystem.gold >= 100)
         {
-            if (listObject[i] != null && listObject[i].GetComponent<Item>().id == randomObject.GetComponent<Item>().id)
-            {
-                listObject[i].transform.eulerAngles = Vector3.zero;
-                if (listObject[i].GetComponent<Item>().number == 1)
-                {
-                    /*listObject[i].transform.DOMove(DragDrop.slot1Pos, 1);*/
-                    listObject[i].transform.DOLocalJump(DragDrop.slot1Pos, 1, 1, 1);
-                }
-                else if (listObject[i].GetComponent<Item>().number == 2)
-                {
-                    /*listObject[i].transform.DOMove(DragDrop.slot2Pos, 1);*/
-                    listObject[i].transform.DOLocalJump(DragDrop.slot2Pos, 1, 1, 1);
-                }
-                
-            }
+            Debug.Log("Continue");
+            EventSystem.gold -= 100;
+            stopwatch.gameTime = 10;
+            gameOverPanel.SetActive(false);
+            ActivateDragDrop();
+            pauseButton.enabled = true;
+            freezeButton.enabled = true;
+            hintButton.enabled = true;
+            Time.timeScale = 1;
         }
     }
 }

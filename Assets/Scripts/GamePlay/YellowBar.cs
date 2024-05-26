@@ -7,7 +7,8 @@ using UnityEngine.Events;
 public class YellowBar : MonoBehaviour
 {
     public Image yellowBar;
-    private int scoreReward = 1, score = 0;
+    private int scoreReward = 1;
+    public static int score = 0;
     public Text barText, scoreText;
     public bool isRun = false;
     public float runTime, remainTime;
@@ -42,7 +43,6 @@ public class YellowBar : MonoBehaviour
         {
             runTime *= 0.8f;
             remainTime = runTime;
-            /*yellowBar.fillAmount = 1;*/
         }
         else
         {
