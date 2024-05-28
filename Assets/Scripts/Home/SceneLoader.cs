@@ -9,8 +9,16 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
     public int level;
+    public ButtonEvent buttonEvent;
     public void LoadLevle()
     {
-        SceneManager.LoadScene("Level" + level);
+        if(EventSystem.heart > 0 || EventSystem.isInfinity ==true)
+        {
+            SceneManager.LoadScene("Level" + level);
+        }
+        else
+        {
+            buttonEvent.ShowMessage("Not enough life, please wait or buy more");
+        }
     }
 }

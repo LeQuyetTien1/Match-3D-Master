@@ -129,13 +129,18 @@ public class GameLogic : MonoBehaviour
     public void LoadHomeScene()
     {
         SceneManager.LoadScene("Home");
+        if (EventSystem.isInfinity) return;
         EventSystem.heart--;
+        if (LifeSystem.tempTime != 0)
+        {
+            LifeSystem.time = LifeSystem.tempTime;
+            LifeSystem.tempTime = 0;
+        }
     }
     public void ContinuePlaying()
     {
         if (EventSystem.gold >= 100)
         {
-            Debug.Log("Continue");
             EventSystem.gold -= 100;
             stopwatch.gameTime = 10;
             gameOverPanel.SetActive(false);

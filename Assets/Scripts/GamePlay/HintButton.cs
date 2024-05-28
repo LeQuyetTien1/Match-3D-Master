@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HintButton : MonoBehaviour
 {
-    public int hintCount;
+    public static int hintCount = 10;
     public Text hintCountText;
     private Vector3 dropSlot1 = new Vector3(-1.09f, 0.3f, -4f);
     private Vector3 dropSlot2 = new Vector3(0.91f, 0.3f, -4f);
@@ -49,7 +49,6 @@ public class HintButton : MonoBehaviour
             var checkObj = listObject[i].GetComponent<Item>();
             if (checkObj.id == randomObj.id)
             {
-                /*listObject[i].tag = "Untagged";*/
                 listObject[i].transform.eulerAngles = Vector3.zero;
                 listObject[i].GetComponent<Rigidbody>().isKinematic = true;
                 if (checkObj.number == number)
@@ -66,7 +65,6 @@ public class HintButton : MonoBehaviour
             var checkObj = listObject[i].transform.position;
             if (checkObj == dropSlot)
             {
-                Debug.Log("Is Contact");
                 listObject[i].GetComponent<Rigidbody>().isKinematic = false;
             }
         }

@@ -10,7 +10,7 @@ public class FreezeButton : MonoBehaviour
     public Text timeText, freezeCountText;
     public int limitTime;
     private float time;
-    public int freezeCount;
+    public static int freezeCount = 3;
     public GameObject clockImage, freezeTime, freezeBackground;
     public Stopwatch stopwatch;
     private void Start()

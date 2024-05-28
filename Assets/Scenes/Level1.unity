@@ -366,9 +366,8 @@ GameObject:
   m_Component:
   - component: {fileID: 211233410}
   - component: {fileID: 211233409}
-  - component: {fileID: 211233411}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HitObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,18 +409,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &211233411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211233408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0a230a27b5fd244b73b6c0fda04565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &495990510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,9 +1621,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1003066758}
   - component: {fileID: 1003066761}
-  - component: {fileID: 1003066762}
   - component: {fileID: 1003066760}
   - component: {fileID: 1003066759}
+  - component: {fileID: 1003066762}
   m_Layer: 5
   m_Name: HintButton
   m_TagString: Untagged
@@ -1771,7 +1758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde2b73e665ce5f4596d8be0c495bbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintCount: 10
   hintCountText: {fileID: 11504483}
   isEndJump: 1
   slot1: {fileID: 1610239088}
@@ -2031,7 +2017,6 @@ MonoBehaviour:
   timeText: {fileID: 1823779284}
   freezeCountText: {fileID: 1196488694}
   limitTime: 10
-  freezeCount: 3
   clockImage: {fileID: 164747460}
   freezeTime: {fileID: 1823779282}
   freezeBackground: {fileID: 1364262655}
@@ -3522,7 +3507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bcd6e0c3239639428eb8f9138a54aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitTime: 20
+  limitTime: 10
   gameTime: 0
   timeText: {fileID: 1776250252}
   gameOver:

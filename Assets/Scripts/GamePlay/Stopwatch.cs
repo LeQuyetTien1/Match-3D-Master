@@ -30,12 +30,12 @@ public class Stopwatch : MonoBehaviour
     private void Update()
     {
         CountTime();
-        
+        LifeSystem.time -= Time.deltaTime;
         if ((int)gameTime > 0 && isStop == false)
         {
             gameTime -= Time.deltaTime;
         }
-        if((int)gameTime == 0)
+        else if((int)gameTime == 0)
         {
             gameOver.Invoke();
         }
