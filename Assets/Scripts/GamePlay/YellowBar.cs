@@ -17,6 +17,7 @@ public class YellowBar : MonoBehaviour
         yellowBar.fillAmount = 0;
         barText.text = scoreReward.ToString();
         remainTime = runTime;
+        score = 0;
     }
 
     void Update()

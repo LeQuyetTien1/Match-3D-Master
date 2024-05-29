@@ -16,9 +16,10 @@ public class GameLogic : MonoBehaviour
     public Stopwatch stopwatch;
     public GameObject blackPlane;
     public UnityEvent increaseScore;
+    public AudioSource correctSound, fireworkSound, gameWinSound, gameOverSound;
     public Item[] listItem;
     private Item replaceItem;
-    
+
     private void OnValidate()
     {
         AddItemID();
@@ -44,6 +45,7 @@ public class GameLogic : MonoBehaviour
             Destroy(replaceItem.gameObject, 0.5f);
             DestroyObject(slot1);
             DestroyObject(slot2);
+            /*PlayCorrectSound();*/
             increaseScore.Invoke();
             hintButton.GetComponent<HintButton>().isEndJump = true;
         }
@@ -54,6 +56,7 @@ public class GameLogic : MonoBehaviour
     }
     public void GameOver()
     {
+        /*PlayGameOverSound();*/
         gameOverPanel.SetActive(true);
         DeactivateDragDrop();
         Time.timeScale = 0;
@@ -63,6 +66,7 @@ public class GameLogic : MonoBehaviour
     }
     public void GameWin()
     {
+        /*PlayWinSound();*/
         gameWinPanel.SetActive(true);
         Time.timeScale = 0;
         pauseButton.enabled = false;
@@ -73,25 +77,25 @@ public class GameLogic : MonoBehaviour
     {
         Destroy(slot.item.gameObject);
         slot.isOccupied = false;
-        slot.item = null;        
+        slot.item = null;
     }
     [ContextMenu("Add Item ID")]
     public void AddItemID()
     {
-        for(int i=0; i<listItem.Length; i++)
+        for (int i = 0; i < listItem.Length; i++)
         {
             if (listItem[i] != null)
             {
                 listItem[i].id = i + 1;
-            }           
+            }
         }
     }
     public void SpawnItem(int number)
     {
-        for(int i=0; i < listItem.Length; i++)
+        for (int i = 0; i < listItem.Length; i++)
         {
             listItem[i].number = number;
-            Instantiate(listItem[i], new Vector3(Random.Range(-6,6),Random.Range(0.5f,2.5f),Random.Range(-0.3f,3f)), Quaternion.Euler(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));            
+            Instantiate(listItem[i], new Vector3(Random.Range(-6, 6), Random.Range(0.5f, 2.5f), Random.Range(-0.3f, 3f)), Quaternion.Euler(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));
         }
     }
     public void Pause()
@@ -151,4 +155,17 @@ public class GameLogic : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+    /*private void PlayCorrectSound()
+    {
+        correctSound.Play();
+    }
+    private void PlayWinSound()
+    {
+        gameWinSound.Play();
+        fireworkSound.Play();
+    }
+    private void PlayGameOverSound()
+    {
+        gameOverSound.Play();
+    }*/
 }

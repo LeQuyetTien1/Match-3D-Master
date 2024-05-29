@@ -13,6 +13,7 @@ public class FreezeButton : MonoBehaviour
     public static int freezeCount = 3;
     public GameObject clockImage, freezeTime, freezeBackground;
     public Stopwatch stopwatch;
+    public AudioSource freezeSound;
     private void Start()
     {
         time = limitTime;
@@ -42,6 +43,7 @@ public class FreezeButton : MonoBehaviour
     {
         if (freezeCount > 0)
         {
+            /*PlayFreezeSound();*/
             time = 10;
             clockImage.SetActive(false);
             freezeTime.SetActive(true);
@@ -50,4 +52,8 @@ public class FreezeButton : MonoBehaviour
             freezeCount--;
         }       
     }
+    /*private void PlayFreezeSound()
+    {
+        freezeSound.Play();
+    }*/
 }

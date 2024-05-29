@@ -14,6 +14,7 @@ public class HintButton : MonoBehaviour
     private GameObject[] listObject;
     public bool isEndJump = true;
     public Slot slot1;
+    public AudioSource hintSound;
     private void Update()
     {
         hintCountText.text = hintCount.ToString();
@@ -34,12 +35,14 @@ public class HintButton : MonoBehaviour
                 JumpToDropPoint(targetObject, 2, dropSlot2);
             }
             else JumpToDropPoint(targetObject, 1, dropSlot2);
+            /*PlayHintAudio();*/
         }
         else
         {
             var randomObject = listObject[Random.Range(0, listObject.Length - 1)].GetComponent<Item>();
             JumpToDropPoint(randomObject, 1, dropSlot1);
             JumpToDropPoint(randomObject, 2, dropSlot2);
+            /*PlayHintAudio();*/
         }       
     }
     public void JumpToDropPoint(Item randomObj, int number, Vector3 dropSlot)
@@ -69,4 +72,8 @@ public class HintButton : MonoBehaviour
             }
         }
     }
+    /*private void PlayHintAudio()
+    {
+        hintSound.Play();
+    }*/
 }

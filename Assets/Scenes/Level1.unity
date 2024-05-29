@@ -1761,6 +1761,7 @@ MonoBehaviour:
   hintCountText: {fileID: 11504483}
   isEndJump: 1
   slot1: {fileID: 1610239088}
+  hintSound: {fileID: 0}
 --- !u!1 &1020883593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,6 +2022,7 @@ MonoBehaviour:
   freezeTime: {fileID: 1823779282}
   freezeBackground: {fileID: 1364262655}
   stopwatch: {fileID: 1776250255}
+  freezeSound: {fileID: 0}
 --- !u!1 &1085603680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,7 +2727,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1509381750}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2052557680}
+        m_TargetAssemblyTypeName: GameLogic, Assembly-CSharp
+        m_MethodName: LoadHomeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1509381750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3526,6 +3540,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isStop: 0
+  clockTickSound: {fileID: 0}
 --- !u!1 &1811791040
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,6 +4249,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  correctSound: {fileID: 0}
+  fireworkSound: {fileID: 0}
+  gameWinSound: {fileID: 0}
+  gameOverSound: {fileID: 0}
   listItem:
   - {fileID: -5174140929208922774, guid: e74125102f2ca4d48a5acc58acc01e3a, type: 3}
   - {fileID: -1036550671086210666, guid: 294ca1d9da039e849a16f5f5baa92868, type: 3}

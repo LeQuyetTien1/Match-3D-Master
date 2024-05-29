@@ -7,7 +7,6 @@ public class EventSystem : MonoBehaviour
 {
     public Text goldText, heartText;
     public static int gold = 1000, heart = 3;
-    public Image scoreBar;
     public static bool isInfinity = false;
     private void Update()
     {

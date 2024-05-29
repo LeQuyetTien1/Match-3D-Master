@@ -10,6 +10,7 @@ public class Buy : MonoBehaviour
     public int numberGold;
     public LifeSystem lifeSystem;
     public ButtonEvent buttonEvent;
+    public AudioSource buySound;
     public void Pay()
     {
         if(EventSystem.gold >= numberGold)
@@ -22,7 +23,8 @@ public class Buy : MonoBehaviour
             EventSystem.gold -= numberGold;
             FreezeButton.freezeCount += numberFreeze;
             HintButton.hintCount += numberHint;
-            if(EventSystem.heart + numberLife > lifeSystem.maxLife)
+            PlayBuyAudio();
+            if (EventSystem.heart + numberLife > lifeSystem.maxLife)
             {
                 EventSystem.heart = lifeSystem.maxLife;
                 lifeSystem.recoverText.text = "Full";
@@ -54,5 +56,9 @@ public class Buy : MonoBehaviour
     {
             LifeSystem.tempTime = (int)LifeSystem.time;
             LifeSystem.time = lifeSystem.infinityTime;
+    }
+    public void PlayBuyAudio()
+    {
+        buySound.Play();
     }
 }
