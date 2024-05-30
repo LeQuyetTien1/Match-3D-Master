@@ -40,10 +40,10 @@ public class Stopwatch : MonoBehaviour
         {
             gameOver.Invoke();
         }
-        /*if((int)gameTime <= 10)
+        if ((int)gameTime <= 10)
         {
-            playClockTickSound();
-        }*/
+            timeText.color = Color.red ;
+        }
     }
     /*private void playClockTickSound()
     {

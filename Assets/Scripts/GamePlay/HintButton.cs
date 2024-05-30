@@ -35,14 +35,14 @@ public class HintButton : MonoBehaviour
                 JumpToDropPoint(targetObject, 2, dropSlot2);
             }
             else JumpToDropPoint(targetObject, 1, dropSlot2);
-            /*PlayHintAudio();*/
+            PlayHintAudio();
         }
         else
         {
             var randomObject = listObject[Random.Range(0, listObject.Length - 1)].GetComponent<Item>();
             JumpToDropPoint(randomObject, 1, dropSlot1);
             JumpToDropPoint(randomObject, 2, dropSlot2);
-            /*PlayHintAudio();*/
+            PlayHintAudio();
         }       
     }
     public void JumpToDropPoint(Item randomObj, int number, Vector3 dropSlot)
@@ -72,8 +72,8 @@ public class HintButton : MonoBehaviour
             }
         }
     }
-    /*private void PlayHintAudio()
+    private void PlayHintAudio()
     {
         hintSound.Play();
-    }*/
+    }
 }

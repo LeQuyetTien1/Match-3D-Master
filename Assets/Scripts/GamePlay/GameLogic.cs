@@ -14,9 +14,10 @@ public class GameLogic : MonoBehaviour
     public GameObject gameOverPanel, gameWinPanel;
     public Button remuseButton, pauseButton, freezeButton, hintButton;
     public Stopwatch stopwatch;
-    public GameObject blackPlane;
-    public UnityEvent increaseScore;
-    public AudioSource correctSound, fireworkSound, gameWinSound, gameOverSound;
+    public GameObject blackPlane, messagePanel;
+    public Text messageText;
+    public UnityEvent increaseScore, gameWin;
+    public AudioSource correctSound, fireworkSound;
     public Item[] listItem;
     private Item replaceItem;
 
@@ -34,7 +35,7 @@ public class GameLogic : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Item") == null)
         {
-            GameWin();
+            gameWin.Invoke();
         }
         if (slot1.item != null && slot2.item != null && slot1.item.id == slot2.item.id)
         {
@@ -45,7 +46,7 @@ public class GameLogic : MonoBehaviour
             Destroy(replaceItem.gameObject, 0.5f);
             DestroyObject(slot1);
             DestroyObject(slot2);
-            /*PlayCorrectSound();*/
+            PlayCorrectSound();
             increaseScore.Invoke();
             hintButton.GetComponent<HintButton>().isEndJump = true;
         }
@@ -56,7 +57,6 @@ public class GameLogic : MonoBehaviour
     }
     public void GameOver()
     {
-        /*PlayGameOverSound();*/
         gameOverPanel.SetActive(true);
         DeactivateDragDrop();
         Time.timeScale = 0;
@@ -66,7 +66,6 @@ public class GameLogic : MonoBehaviour
     }
     public void GameWin()
     {
-        /*PlayWinSound();*/
         gameWinPanel.SetActive(true);
         Time.timeScale = 0;
         pauseButton.enabled = false;
@@ -146,7 +145,7 @@ public class GameLogic : MonoBehaviour
         if (EventSystem.gold >= 100)
         {
             EventSystem.gold -= 100;
-            stopwatch.gameTime = 10;
+            stopwatch.gameTime = stopwatch.limitTime;
             gameOverPanel.SetActive(false);
             ActivateDragDrop();
             pauseButton.enabled = true;
@@ -154,18 +153,22 @@ public class GameLogic : MonoBehaviour
             hintButton.enabled = true;
             Time.timeScale = 1;
         }
+        else
+        {
+            ShowMessage();
+        }
     }
-    /*private void PlayCorrectSound()
+    public void PlayCorrectSound()
     {
         correctSound.Play();
     }
-    private void PlayWinSound()
+    public void HideMessage()
     {
-        gameWinSound.Play();
-        fireworkSound.Play();
+        messagePanel.SetActive(false);
     }
-    private void PlayGameOverSound()
+    public void ShowMessage()
     {
-        gameOverSound.Play();
-    }*/
+        messagePanel.SetActive(true);
+        messageText.text = "Not enough gold";
+    }
 }

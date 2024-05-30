@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class GamePlayAudio : MonoBehaviour
 {
-    public AudioSource gamePlaySound;
     public AudioSource clickSound;
-    void Start()
-    {
-        gamePlaySound.Play();
-    }
+    public AudioSource gamePlaySound;
     public void PlayClickAudio()
     {
         clickSound.Play();
+    }
+    public void PlayGameSound()
+    {
+        gamePlaySound.Play();
+    }
+    public void PauseGameSound()
+    {
+        gamePlaySound.Pause();
     }
 }

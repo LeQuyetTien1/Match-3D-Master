@@ -9,7 +9,6 @@ public class DragDrop : MonoBehaviour
     private Slot slot1, slot2;
     private Item dragItem;
     private new Rigidbody rigidbody;
-    public AudioSource wrongSound;
     private void Start()
     {
         slot1 = GameObject.FindGameObjectWithTag("Slot1").GetComponent<Slot>();
@@ -50,7 +49,7 @@ public class DragDrop : MonoBehaviour
                 {
                     transform.DOLocalJump(new Vector3(Random.Range(-5, 5), 0.5f, Random.Range(0, 3)), 1f, 1, 1);
                     transform.DOLocalRotate(new Vector3(90, 0, 0),1f);
-                    /*PlayWrongSound();*/
+                    slot2.PlayWrongSound();
                 }
             }
         }
@@ -71,8 +70,4 @@ public class DragDrop : MonoBehaviour
         transform.eulerAngles = Vector3.zero;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
-    /*private void PlayWrongSound()
-    {
-        wrongSound.Play();
-    }*/
 }

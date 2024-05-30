@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
+    public AudioSource wrongSound;
     public bool isOccupied = false;
     public Item item;
     private void OnTriggerStay(Collider other)
@@ -15,5 +16,9 @@ public class Slot : MonoBehaviour
     {
         isOccupied = false;
         item = null;
+    }
+    public void PlayWrongSound()
+    {
+        wrongSound.Play();
     }
 }
