@@ -59,6 +59,7 @@ public class Buy : MonoBehaviour
     }
     public void PlayBuyAudio()
     {
+        Debug.Log("PlayBuyAudio");
         buySound.Play();
     }
 }

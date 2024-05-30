@@ -72,4 +72,8 @@ public class ButtonEvent : MonoBehaviour
             HideInfinity();
         }
     }
+    public void PlayClickAudio()
+    {
+        Debug.Log("Play Click Audio");
+    }
 }
