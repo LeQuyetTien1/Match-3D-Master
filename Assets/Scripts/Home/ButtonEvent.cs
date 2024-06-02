@@ -12,6 +12,21 @@ public class ButtonEvent : MonoBehaviour
     private Color brown = new Color(0.8584906f, 0.4253691f, 0.1174351f, 1);
     public GameObject infinityPanel, messagePanel;
     public Text messageText;
+    private void Start()
+    {
+        SetPanel(2);
+    }
+    private void Update()
+    {
+        if (EventSystem.isInfinity)
+        {
+            ShowInfinity();
+        }
+        else
+        {
+            HideInfinity();
+        }
+    }
     public void GoShop()
     {
         SetPanel(1);
@@ -60,17 +75,6 @@ public class ButtonEvent : MonoBehaviour
     public void HideInfinity()
     {
         infinityPanel.SetActive(false);
-    }
-    private void Update()
-    {
-        if (EventSystem.isInfinity)
-        {
-            ShowInfinity();
-        }
-        else
-        {
-            HideInfinity();
-        }
     }
     public void PlayClickAudio()
     {

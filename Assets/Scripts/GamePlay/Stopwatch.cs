@@ -12,7 +12,6 @@ public class Stopwatch : MonoBehaviour
     public Text timeText;
     public UnityEvent gameOver;
     public bool isStop = false;
-    public AudioSource clockTickSound;
 
     private void Start()
     {
@@ -40,13 +39,9 @@ public class Stopwatch : MonoBehaviour
         {
             gameOver.Invoke();
         }
-        if ((int)gameTime <= 10)
+        if ((int)gameTime <= 10 && isStop != true)
         {
             timeText.color = Color.red ;
         }
     }
-    /*private void playClockTickSound()
-    {
-        clockTickSound.Play();
-    }*/
 }

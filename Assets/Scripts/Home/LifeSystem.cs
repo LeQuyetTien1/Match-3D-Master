@@ -10,12 +10,13 @@ public class LifeSystem : MonoBehaviour
 {
     public int recoverTime, infinityTime;
     public static int tempTime;
-    public static float time = 10;
+    public static float time;
     public int maxLife;
     public Text recoverText;
     private void Start()
     {
         Time.timeScale = 1;
+        if (time == 0) time = recoverTime;
     }
     private void Update()
     {

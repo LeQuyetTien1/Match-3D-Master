@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class FreezeButton : MonoBehaviour
 {
@@ -43,17 +44,18 @@ public class FreezeButton : MonoBehaviour
     {
         if (freezeCount > 0)
         {
-            /*PlayFreezeSound();*/
+            PlayFreezeSound();
             time = 10;
             clockImage.SetActive(false);
             freezeTime.SetActive(true);
             freezeBackground.SetActive(true);
             stopwatch.isStop = true;
+            stopwatch.timeText.color = Color.cyan;
             freezeCount--;
         }       
     }
-    /*private void PlayFreezeSound()
+    private void PlayFreezeSound()
     {
         freezeSound.Play();
-    }*/
+    }
 }
