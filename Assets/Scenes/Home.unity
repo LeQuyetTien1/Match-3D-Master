@@ -9702,7 +9702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c83c6a88d850648ae306ec63b1d9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverTime: 10
+  recoverTime: 30
   infinityTime: 20
   maxLife: 10
   recoverText: {fileID: 1718883590}

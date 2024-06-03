@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class GameLogic : MonoBehaviour
 {
     public Slot slot1, slot2;
-    public GameObject gameOverPanel, gameWinPanel;
+    public GameObject gameOverPanel, gameWinPanel, pausePanel;
     public Button remuseButton, pauseButton, freezeButton, hintButton;
     public Stopwatch stopwatch;
     public GameObject blackPlane, messagePanel;
@@ -94,11 +94,12 @@ public class GameLogic : MonoBehaviour
         for (int i = 0; i < listItem.Length; i++)
         {
             listItem[i].number = number;
-            Instantiate(listItem[i], new Vector3(Random.Range(-6, 6), Random.Range(0.5f, 2.5f), Random.Range(-0.3f, 3f)), Quaternion.Euler(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));
+            Instantiate(listItem[i], new Vector3(Random.Range(-6, 6), Random.Range(0.5f, 2.5f), Random.Range(-1f, 2.5f)), Quaternion.Euler(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));
         }
     }
     public void Pause()
     {
+        pausePanel.SetActive(true);
         remuseButton.gameObject.SetActive(true);
         DeactivateDragDrop();
         Time.timeScale = 0;
@@ -107,6 +108,7 @@ public class GameLogic : MonoBehaviour
     }
     public void Remuse()
     {
+        pausePanel.SetActive(false);
         remuseButton.gameObject.SetActive(false);
         ActivateDragDrop();
         Time.timeScale = 1;
@@ -134,11 +136,11 @@ public class GameLogic : MonoBehaviour
         SceneManager.LoadScene("Home");
         if (EventSystem.isInfinity) return;
         EventSystem.heart--;
-        if (LifeSystem.tempTime != 0)
+        /*if (LifeSystem.tempTime != 0)
         {
             LifeSystem.time = LifeSystem.tempTime;
             LifeSystem.tempTime = 0;
-        }
+        }*/
     }
     public void ContinuePlaying()
     {
@@ -155,7 +157,7 @@ public class GameLogic : MonoBehaviour
         }
         else
         {
-            ShowMessage();
+            ShowMessage("Not enough gold");
         }
     }
     public void PlayCorrectSound()
@@ -166,9 +168,19 @@ public class GameLogic : MonoBehaviour
     {
         messagePanel.SetActive(false);
     }
-    public void ShowMessage()
+    public void ShowMessage(string message)
     {
         messagePanel.SetActive(true);
-        messageText.text = "Not enough gold";
+        messageText.text = message;
+    }
+    public void Restart()
+    {
+        if (EventSystem.isInfinity) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        else if (EventSystem.heart > 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            EventSystem.heart--;
+        }
+        else ShowMessage("Can't restart! You have no life");
     }
 }
