@@ -38,4 +38,13 @@ public class ScoreBar : MonoBehaviour
     {
         speed = YellowBar.score / 3;
     }
+    public static void SetScore()
+    {
+        Debug.Log("SetScore");
+        LeaderBoard.currentScore = score + YellowBar.score;
+        score = 0;
+        YellowBar.score = 0;
+        maxScore = 10;
+        minScore = 0;
+    }
 }

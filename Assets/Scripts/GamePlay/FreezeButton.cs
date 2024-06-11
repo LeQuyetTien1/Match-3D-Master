@@ -11,7 +11,7 @@ public class FreezeButton : MonoBehaviour
     public Text timeText, freezeCountText;
     public int limitTime;
     private float time;
-    public static int freezeCount = 3;
+    public static int freezeCount = 1;
     public GameObject clockImage, freezeTime, freezeBackground;
     public Stopwatch stopwatch;
     public AudioSource freezeSound;
@@ -38,6 +38,7 @@ public class FreezeButton : MonoBehaviour
             freezeTime.SetActive(false);
             freezeBackground.SetActive(false);
             stopwatch.isStop = false;
+            stopwatch.timeText.color = Color.white;
         }
     }
     public void Freeze()

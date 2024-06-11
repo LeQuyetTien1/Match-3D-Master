@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EventSystem : MonoBehaviour
 {
     public Text goldText, heartText;
-    public static int gold = 1000, heart = 3;
+    public static int gold = 0, heart = 3;
     public static bool isInfinity = false;
     private void Update()
     {
@@ -28,5 +28,13 @@ public class EventSystem : MonoBehaviour
     public void ShowHeartText()
     {
         heartText.enabled = true;
+    }
+    public void CheckNumberOfLife()
+    {
+        if(heart == 0)
+        {
+            ScoreBar.score = 0;
+
+        }
     }
 }

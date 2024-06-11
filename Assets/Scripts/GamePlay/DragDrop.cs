@@ -31,6 +31,12 @@ public class DragDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        if(HintButton.isEndJump == false)
+        {
+            transform.DOLocalJump(new Vector3(Random.Range(-5, 5), 0.5f, Random.Range(0, 3)), 1f, 1, 1);
+            transform.DOLocalRotate(new Vector3(90, 0, 0), 1f);
+            return;
+        }
         RaycastHit hit = CastRay();
         rigidbody.useGravity = true;
         if (hit.collider.CompareTag("Plane"))

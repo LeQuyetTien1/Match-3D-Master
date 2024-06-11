@@ -3109,7 +3109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hintCountText: {fileID: 11504483}
-  isEndJump: 1
   slot1: {fileID: 1610239088}
   hintSound: {fileID: 1777407246}
 --- !u!1 &1010856723
@@ -4880,7 +4879,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2052557680}
         m_TargetAssemblyTypeName: GameLogic, Assembly-CSharp
-        m_MethodName: LoadHomeScene
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5940,7 +5939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bcd6e0c3239639428eb8f9138a54aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitTime: 15
+  limitTime: 90
   gameTime: 0
   timeText: {fileID: 1776250252}
   gameOver:

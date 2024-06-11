@@ -12,6 +12,7 @@ public class Stopwatch : MonoBehaviour
     public Text timeText;
     public UnityEvent gameOver;
     public bool isStop = false;
+    public static int recoverTime;
 
     private void Start()
     {
@@ -31,6 +32,11 @@ public class Stopwatch : MonoBehaviour
     {
         CountTime();
         LifeSystem.time -= Time.deltaTime;
+        if ((int)LifeSystem.time == 0)
+        {
+            LifeSystem.time = recoverTime;
+            if(EventSystem.heart < 10) EventSystem.heart++;
+        }
         if ((int)gameTime > 0 && isStop == false)
         {
             gameTime -= Time.deltaTime;
@@ -38,6 +44,7 @@ public class Stopwatch : MonoBehaviour
         else if((int)gameTime == 0)
         {
             gameOver.Invoke();
+            
         }
         if ((int)gameTime <= 10 && isStop != true)
         {

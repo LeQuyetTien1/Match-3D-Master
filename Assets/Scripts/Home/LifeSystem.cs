@@ -16,6 +16,7 @@ public class LifeSystem : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        Stopwatch.recoverTime = recoverTime;
         if (time == 0) time = recoverTime;
     }
     private void Update()
