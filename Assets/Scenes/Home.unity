@@ -2213,7 +2213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 357.40002, y: -9.8472}
+  m_AnchoredPosition: {x: 329, y: -9.8472}
   m_SizeDelta: {x: 691.2731, y: 68.368}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353208678
@@ -2228,7 +2228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280fe20ceb8f1a04dae5a82bd83f5c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardGold: 10
   scoreBar: {fileID: 918760039}
   scoreText: {fileID: 1029118840}
   rewardGoldText: {fileID: 2107454967}
@@ -10101,7 +10100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoverTime: 30
-  infinityTime: 300
+  infinityTime: 3600
   maxLife: 10
   recoverText: {fileID: 1718883590}
 --- !u!1 &1815967643
@@ -11908,8 +11907,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.2, y: -19.8}
-  m_SizeDelta: {x: 100, y: 60}
+  m_AnchoredPosition: {x: 81.5, y: -19.8}
+  m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107454967
 MonoBehaviour:
@@ -11938,13 +11937,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 50
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 20
 --- !u!222 &2107454968
 CanvasRenderer:
   m_ObjectHideFlags: 0

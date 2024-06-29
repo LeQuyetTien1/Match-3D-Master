@@ -31,6 +31,7 @@ public class GameLogic : MonoBehaviour
         Time.timeScale = 1;
         SpawnItem(1);
         SpawnItem(2);
+        HintButton.isEndJump = true;
     }
     private void Update()
     {

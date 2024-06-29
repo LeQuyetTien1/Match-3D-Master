@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreBar : MonoBehaviour
 {
     public static int score = 0, minScore = 0, maxScore = 10;
-    public int rewardGold;
+    public static int rewardGold = 20;
     private float tempScore;
     public Image scoreBar;
     private float speed;
@@ -26,7 +26,7 @@ public class ScoreBar : MonoBehaviour
         scoreBar.fillAmount = (tempScore - minScore)/ (maxScore - minScore);
         scoreText.text = (int)tempScore + "/" + maxScore;
         rewardGoldText.text = rewardGold.ToString();
-        if ((int)tempScore == maxScore)
+        if ((int)tempScore >= maxScore)
         {
             minScore = maxScore;
             maxScore *= 2;
