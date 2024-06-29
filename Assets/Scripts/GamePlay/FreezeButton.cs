@@ -11,7 +11,7 @@ public class FreezeButton : MonoBehaviour
     public Text timeText, freezeCountText;
     public int limitTime;
     private float time;
-    public static int freezeCount = 1;
+    public static int freezeCount = 10;
     public GameObject clockImage, freezeTime, freezeBackground;
     public Stopwatch stopwatch;
     public AudioSource freezeSound;
@@ -27,7 +27,6 @@ public class FreezeButton : MonoBehaviour
     {
         CountTime();
         freezeCountText.text = freezeCount.ToString();
-
         if (time > 0 && stopwatch.isStop == true)
         {
             time -= Time.deltaTime;

@@ -12,11 +12,11 @@ public class Item : MonoBehaviour
         {
             gameObject.AddComponent<DragDrop>();
         }
-        if (gameObject.GetComponent<MeshCollider>() == null)
+        /*if (gameObject.GetComponent<MeshCollider>() == null)
         {
             gameObject.AddComponent<MeshCollider>();
             gameObject.GetComponent<MeshCollider>().convex = true;
-        }
+        }*/
         if (gameObject.GetComponent<Rigidbody>() == null)
         {
             gameObject.AddComponent<Rigidbody>();

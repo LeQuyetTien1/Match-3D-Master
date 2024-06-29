@@ -101,24 +101,22 @@ public class GameLogic : MonoBehaviour
         for (int i = 0; i < listItem.Length; i++)
         {
             listItem[i].number = number;
-            Instantiate(listItem[i], new Vector3(Random.Range(-6, 6), Random.Range(0.5f, 2.5f), Random.Range(-1f, 2.5f)), Quaternion.Euler(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));
+            Instantiate(listItem[i], new Vector3(Random.Range(-6.2f, 6.2f), Random.Range(0.75f, 2.5f), Random.Range(-1f, 2.7f)), Quaternion.Euler(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));
         }
     }
     public void Pause()
     {
         pausePanel.SetActive(true);
-        remuseButton.gameObject.SetActive(true);
         DeactivateDragDrop();
-        stopwatch.isStop = true;
+        Time.timeScale = 0;
         freezeButton.enabled = false;
         hintButton.enabled = false;
     }
     public void Remuse()
     {
         pausePanel.SetActive(false);
-        remuseButton.gameObject.SetActive(false);
         ActivateDragDrop();
-        stopwatch.isStop = false;
+        Time.timeScale = 1;
         freezeButton.enabled = true;
         hintButton.enabled = true;
     }

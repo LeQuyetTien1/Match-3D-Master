@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EventSystem : MonoBehaviour
 {
     public Text goldText, heartText;
-    public static int gold = 0, heart = 3;
+    public static int gold = 2000, heart = 3;
     public static bool isInfinity = false;
     private void Update()
     {

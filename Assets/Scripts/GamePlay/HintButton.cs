@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HintButton : MonoBehaviour
 {
-    public static int hintCount = 1;
+    public static int hintCount = 10;
     public Text hintCountText;
     private Vector3 dropSlot1 = new Vector3(-1.09f, 0.3f, -4f);
     private Vector3 dropSlot2 = new Vector3(0.91f, 0.3f, -4f);

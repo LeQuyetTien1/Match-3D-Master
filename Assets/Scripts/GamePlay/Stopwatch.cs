@@ -23,9 +23,6 @@ public class Stopwatch : MonoBehaviour
         int minute = Mathf.FloorToInt(gameTime / 60);
         int second = Mathf.FloorToInt(gameTime % 60);
 
-        /*TimeSpan a = new TimeSpan((int)gameTime);
-        int minute = a.Minutes;
-        int second = a.Seconds;*/
         timeText.text = minute + ":" + (second < 10 ? "0" + second : second);
     }
     private void Update()

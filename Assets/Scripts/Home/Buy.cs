@@ -54,8 +54,8 @@ public class Buy : MonoBehaviour
     }
     public void CountInfinityTimeRemain()
     {
-            LifeSystem.tempTime = (int)LifeSystem.time;
-            LifeSystem.time = lifeSystem.infinityTime;
+        LifeSystem.tempTime = (int)LifeSystem.time;
+        LifeSystem.time = lifeSystem.infinityTime;
     }
     public void PlayBuyAudio()
     {

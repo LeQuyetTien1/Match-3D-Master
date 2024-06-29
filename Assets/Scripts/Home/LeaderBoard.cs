@@ -7,17 +7,13 @@ public class LeaderBoard : MonoBehaviour
 {
     public Text rank1Text, rank2Text, rank3Text;
     public static int rank1Score, rank2Score, rank3Score;
-    public static int [] scores = new int[3] /*{rank1Score, rank2Score, rank3Score}*/;
+    public static int [] scores = new int[3];
     public static int currentScore;
-    /*private void Start()
-    {
-        CheckRank();
-    }*/
     private void Update()
     {
-        rank1Text.text = scores[0].ToString()/*rank1Score.ToString()*/;
-        rank2Text.text = scores[1].ToString()/*rank2Score.ToString()*/;
-        rank3Text.text = scores[2].ToString()/*rank3Score.ToString()*/;
+        rank1Text.text = scores[0].ToString();
+        rank2Text.text = scores[1].ToString();
+        rank3Text.text = scores[2].ToString();
     }
     public static void CheckRank()
     {
@@ -33,6 +29,5 @@ public class LeaderBoard : MonoBehaviour
                 break;
             }
         }
-        Debug.Log(LeaderBoard.currentScore);
     }
 }

@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49339f307463f6144afb91cc311e2b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 14
-  number: 0
+  id: 17
+  number: 2
 --- !u!114 &-8061870632226545909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ Rigidbody:
   m_GameObject: {fileID: 1630739026963781104}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 5
+  m_Drag: 4
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

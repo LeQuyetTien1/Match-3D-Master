@@ -80,4 +80,9 @@ public class ButtonEvent : MonoBehaviour
     {
         Debug.Log("Play Click Audio");
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
 }
